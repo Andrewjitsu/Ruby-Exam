@@ -1,0 +1,57 @@
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<%end%>
+  <form action="/lenders" method="POST">
+    <h1>Lender</h1>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+          <label>First Name</label>
+          <input name="first_name" type="text"><br>
+    
+        
+          <label>Last Name</label>
+          <input name="last_name" type="text"><br>
+       
+        
+          <label>Email</label>
+          <input name="email" type="text"><br>
+          
+          <label>Password</label>
+          <input name="password" type="text"><br>
+        
+          <label>Money</label>
+          <input name="money" type="text"><br>
+
+          <a href="/online_lending/login">Already a member?</a>
+          
+          <input type="submit" value="Register">
+  </form>
+  
+  <form action="/borrowers" method="POST">
+    <h1>Borrower</h1>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+          <label>First Name</label>
+          <input name="first_name" type="text"><br>
+    
+        
+          <label>Last Name</label>
+          <input name="last_name" type="text"><br>
+       
+        
+          <label>Email</label>
+          <input name="email" type="text"><br>
+          
+          <label>Password</label>
+          <input name="password" type="text"><br>
+
+          <label>Need Money For</label>
+          <input type="text" name="money_for"><br>
+          
+          <textarea name="description" cols="30" rows="10">Description</textarea><br>
+          
+          <label>Amount Needed</label>
+          <input name="amount" type="text"><br>
+          
+		  <a href="/online_lending/login">Already a member?</a>
+
+          <input type="submit" value="Register">
+  </form>

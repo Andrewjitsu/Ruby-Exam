@@ -1,0 +1,28 @@
+<h1>Name: <%=@lender.first_name%> <%=@lender.last_name%></h1>
+<h1>Account Balance: <%=@lender.money%></h1>
+<a href="/logout">Logout</a>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Need Money for</th>
+		<th>Reason for Loan</th>
+		<th>Amount Needed</th>
+		<th>Amount Raised</th>
+		<th>Action</th>
+	</tr>
+	<% @borrower.each do |b|%> 
+	<tr>
+		<td>|<%=b.first_name%> <%=b.last_name%> </td>
+		<td>|<%=b.money_for%> </td>
+		<td>|<%=b.description%> </td>
+		<td>|<%=b.amount%> </td>
+		<td>|<%=@raised%></td>
+		<td><form action="/money_lent" method="POST">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+			<input type="hidden" name="_method" value="patch">
+			<input type="text" name="money_lent">
+			<input type="submit" value="Lend"></form>
+		</td>
+	</tr>
+	<% end %>
+</table>
